@@ -3,7 +3,11 @@ import Colors from "./Colors/Colors.tsx";
 import Price from "./Price/Price.tsx";
 import "./Sidebar.css";
 
-const Sidebar = () => {
+type SidebarProps = {
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+};
+
+const Sidebar = ({ handleChange }: SidebarProps) => {
   return (
     <>
       <section className="sidebar">
@@ -12,9 +16,9 @@ const Sidebar = () => {
         </div>
 
         <div className="flex flex-col items-start ">
-          <Category />
-          <Price />
-          <Colors />
+          <Category handleChange={handleChange} />
+          <Price handleChange={handleChange} />
+          <Colors handleChange={handleChange} />
         </div>
       </section>
     </>
