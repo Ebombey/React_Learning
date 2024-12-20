@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import Nav from "./components/Navigation/Nav.tsx";
 import Products from "./components/Products/Products.tsx";
-import Recommended from "./components/Recommeded/Recommended.tsx";
+import Recommended from "./components/Recommended/Recommended.tsx";
 import Sidebar from "./components/Sidebar/Sidebar.tsx";
 
 // Database
@@ -23,7 +23,7 @@ type ProductType = {
 };
 
 function App() {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [query, setQuery] = useState("");
 
   // Input filter
@@ -64,7 +64,8 @@ function App() {
           product.category === selected ||
           product.color === selected ||
           product.company === selected ||
-          product.title === selected
+          product.title === selected ||
+          product.newPrice === selected
       );
     }
 
@@ -84,16 +85,14 @@ function App() {
     ));
   }
 
-  const result = selectedCategory
-    ? filteredData(products, selectedCategory, query)
-    : null;
+  const result = filteredData(products, selectedCategory, query);
 
   return (
     <>
       <Sidebar handleChange={handleChange} />
-      <Nav />
-      <Recommended />
-      <Products />
+      <Nav query={query} handleInputChange={handleInputChange} />
+      <Recommended handleClick={handleClick} />
+      <Products result={result} />
     </>
   );
 }

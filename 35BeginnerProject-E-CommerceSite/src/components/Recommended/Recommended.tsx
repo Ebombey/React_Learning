@@ -1,6 +1,11 @@
 import "./Recommended.css";
 
-const Recommended = () => {
+type RecommendedProps = {
+  children?: React.ReactNode;
+  handleClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+};
+
+const Recommended = ({ handleClick }: RecommendedProps) => {
   return (
     <>
       <div>

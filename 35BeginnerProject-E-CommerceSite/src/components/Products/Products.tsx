@@ -1,24 +1,15 @@
 import "./Products.css";
-import Card from "../Card.tsx";
+import React from "react";
 
-const Products = () => {
+type ProductsProps = {
+  result: React.ReactNode;
+};
+
+const Products = ({ result }: ProductsProps) => {
+  console.log(result);
   return (
     <>
-      <section className="card-container">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-      </section>
+      <section className="card-container">{result}</section>
     </>
   );
 };
