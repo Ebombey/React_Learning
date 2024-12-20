@@ -1,3 +1,4 @@
+import Buttons from "../Buttons.tsx";
 import "./Recommended.css";
 
 type RecommendedProps = {
@@ -11,11 +12,11 @@ const Recommended = ({ handleClick }: RecommendedProps) => {
       <div>
         <h2 className="recommended-title">Recommended</h2>
         <div className="recommended-flex">
-          <button className="btns">All Products</button>
-          <button className="btns">Nike</button>
-          <button className="btns">Adidas</button>
-          <button className="btns">Puma</button>
-          <button className="btns">Vans</button>
+          <Buttons handleClick={handleClick} value="" title="All Products" />
+          <Buttons handleClick={handleClick} value="nike" title="Nike" />
+          <Buttons handleClick={handleClick} value="adidas" title="Adidas" />
+          <Buttons handleClick={handleClick} value="puma" title="Puma" />
+          <Buttons handleClick={handleClick} value="vans" title="Vans" />
         </div>
       </div>
     </>

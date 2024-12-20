@@ -9,7 +9,7 @@ type NavProps = {
   children?: React.ReactNode;
 };
 
-const Nav = ({ query, handleInputChange }: NavProps) => {
+const Nav = ({ handleInputChange }: NavProps) => {
   return (
     <nav>
       <div className="nav-container">
@@ -17,6 +17,7 @@ const Nav = ({ query, handleInputChange }: NavProps) => {
           type="text"
           className="search-input"
           placeholder="Search Shoes"
+          onChange={handleInputChange}
         />
       </div>
 

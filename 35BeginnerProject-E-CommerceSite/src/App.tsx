@@ -26,7 +26,7 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [query, setQuery] = useState("");
 
-  // Input filter
+  // -------Search Bar Filter-----------
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
   };
@@ -35,12 +35,12 @@ function App() {
     (product) => product.title.toLowerCase().indexOf(query.toLowerCase()) !== -1
   );
 
-  // -------Radio Filter-----------
+  // -------Sidebar Radio Filter-----------
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedCategory(e.target.value);
   };
 
-  // -------Button Filter-----------
+  // -------Recommended Button Filter-----------
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     setSelectedCategory(e.currentTarget.value);
   };
@@ -52,20 +52,20 @@ function App() {
   ) {
     let filteredProducts = products;
 
-    // Filtering input items
+    // Search Filter
     if (query) {
       filteredProducts = filteredItems;
     }
 
-    // Selected Filter
+    // Sidebar Filter - Category, Price, Colors, Company
     if (selected) {
       filteredProducts = filteredProducts.filter(
         (product) =>
-          product.category === selected ||
-          product.color === selected ||
-          product.company === selected ||
-          product.title === selected ||
-          product.newPrice === selected
+          product.category.toLowerCase() === selected ||
+          product.color.toLowerCase() === selected ||
+          product.company.toLowerCase() === selected ||
+          product.title.toLowerCase() === selected ||
+          product.newPrice.toLowerCase() === selected
       );
     }
 
