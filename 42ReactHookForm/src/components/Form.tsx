@@ -22,6 +22,7 @@ const Form = () => {
         <input
           type="text"
           id="name"
+          placeholder="Enter your name"
           className="border border-black"
           {...register("name", { required: "Name is required" })}
         />
@@ -34,6 +35,7 @@ const Form = () => {
         <input
           type="text"
           id="email"
+          placeholder="Enter your email"
           className="border border-black"
           {...register("email", {
             required: "Email is required",
@@ -45,6 +47,30 @@ const Form = () => {
         />
 
         {errors.email && <p className="text-red-600">{errors.email.message}</p>}
+      </div>
+
+      <div>
+        <label htmlFor="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter your password"
+          className="border border-black"
+          {...register("password", {
+            minLength: {
+              value: 8,
+              message: "Password must be at least 8 characters",
+            },
+          })}
+        />
+
+        {errors.password && (
+          <p className="text-red-600">{errors.password.message}</p>
+        )}
+
+        <button type="submit" disabled={isSubmitting}>
+          {isSubmitting ? "Submitting..." : "Submit"}
+        </button>
       </div>
     </form>
   );

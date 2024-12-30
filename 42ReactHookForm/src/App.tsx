@@ -1,10 +1,11 @@
 import "./App.css";
-import Form from "./components/Form.tsx";
+import AdvanceForm from "./components/AdvanceForm.tsx";
 
 function App() {
   return (
     <>
-      <Form />
+      {/* <Form /> */}
+      <AdvanceForm />
     </>
   );
 }
